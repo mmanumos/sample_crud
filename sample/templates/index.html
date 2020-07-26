@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title %} Listado {% endblock %}</title>
+</head>
+
+<body>
+    <h1>
+        {% block page_name %} Template de listado {% endblock %}
+    </h1>
+    {% block content %}
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in persons %}
+            <tr>
+                <td>{{ person.name }}</td>
+                <td>{{ person.last_name }}</td>
+                <td>{{ person.email }}</td>
+                <td><a href="{% url 'edit_person' person.id %}">Edit</a> <a
+                        href="{% url 'delete_person' person.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+</body>
+<footer>
+    este es el footer
+</footer>
+
+</html>

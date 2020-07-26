@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{%block title %}
+Create person
+{%endblock%}
+
+{%block page_name %}
+Create person
+{%endblock%}
+
+{%block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Crear o editar</button>
+</form>
+{%endblock%}
